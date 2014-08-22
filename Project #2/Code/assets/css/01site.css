@@ -1,0 +1,298 @@
+/******************************************
+*
+*   Import Other CSS Files
+*
+******************************************/
+@import url("fonts.css");
+@import url("colors.css");
+
+
+/******************************************
+*
+*   Site Wide Element Selectors
+*
+******************************************/
+
+body {
+    /* Site Wide Font */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    /* Static Background Image */
+    background: url(../images/backgrounds/ClearwaterBeach1.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/backgrounds/ClearwaterBeach1.jpg', sizingMethod='scale')";
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/backgrounds/ClearwaterBeach1.jpg', sizingMethod='scale');
+}
+
+a {
+    /* No underlines under hyperlinks */
+    text-decoration: none;
+    color: #3E72A7;
+    color: rgba(96, 161, 210, 0.8);
+}
+
+a:hover, 
+a:focus,
+a:active {
+    text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 10px 0;
+}
+
+
+
+/******************************************
+*
+*   Layout Classes
+*
+******************************************/
+
+.container {
+    /* Center */
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* Magic Numbers Bad */
+    width: 1170px;                  
+}   
+
+.row {
+    margin-left: -30px;
+}
+
+.row::before, .row::after {
+    display: table;
+    content: "";
+}
+
+.row::after {
+    /* Important because float:left on spanX will not allow height thru */
+    clear: both;
+}
+
+[class*="span"] {
+    float: left;
+    margin-left: 30px;  
+}
+
+.span4 {
+    /* Magic Numbers Bad */
+    width: 370px;
+}
+
+.span8 {
+    /* Magic Numbers Bad */
+    width: 770px;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+
+
+/******************************************
+*
+*   Background Image Overlay 1 pixel Grid
+*
+******************************************/
+
+.overlay {
+    background-image: url(../images/backgrounds/overlay.png);
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+
+/******************************************
+*
+*   Header
+*
+******************************************/
+.navbar {
+    height: 80px;
+}
+
+.header {
+    width: 100%;
+    height: 80px;
+    top: 0;
+    
+    /* Make it so header doesn't scroll off screen */
+    position: fixed;
+}
+
+.logo {
+    width: 100px;
+    height: 95px;
+    padding: 0 20px;
+    
+    border: 1px solid;
+    /* 2 border-color declarations to provide non-alpha fallback */
+    border-color: #4d8dc6;
+    border-color: rgba(77, 141, 198, 0.2);
+    border-top: 0;
+    
+    float: left;
+}
+
+.logo-img {
+    margin-top: 25px;
+}
+
+.nav-list {
+    margin: 0;
+}
+
+.nav-list-item {
+    /* Remove bullets from list items */
+    list-style: none;
+    
+    /* Makes List Run Horizontal */
+    float: left;
+}
+
+.nav-list-item-link {
+    /* Defaults to display: static; */
+    display: block;
+    padding: 30px 20px;
+
+    /* Space at top for color indicator bar */
+    border-top: 3px transparent solid;
+    
+    color: #333;
+    font-family: 'UbuntuTitlingBold', sans-serif;
+    font-size: 16px;
+    font-weight: 300;       
+}
+
+.nav-list-item-link:hover,
+.nav-list-item-link:focus,
+.nav-list-item-link:active {
+    text-decoration: none;
+}
+
+.nav-list-item-link:hover,
+.nav-list-item-link:focus,
+.nav-list-item.is-active .nav-list-item-link,
+.nav-list-item.is-active .nav-list-item-link:hover {
+    /* Add color indicator bar to top of nav item */
+    border-color: #3E72A7;
+    border-color: rgba(77,141,198,0.77);
+}
+
+.nav-list-item.is-active .nav-list-item-link {
+    /* Provide depth to .active nav item */
+    -webkit-box-shadow: inset 0 3px 8px rgba(0,0,0,0.125);
+    -moz-box-shadow: inset 0 3px 8px rgba(0,0,0,0.125);
+    box-shadow: inset 0 3px 8px rgba(0,0,0,0.125);
+}
+
+
+
+/******************************************
+*
+*   Content
+*
+******************************************/
+
+.content {
+    /* TBR*/
+    height: 200px;
+    
+    /* Get below the header area */
+    margin-top: 125px;
+    padding: 10px 20px;
+    
+    border: 1px #fff solid;
+    border: 1px rgba(255,255,255,0.8) solid;
+}
+
+
+
+/******************************************
+*
+*   Footer
+*
+******************************************/
+.footer {
+    clear: both;
+    padding: 10px 20px;
+    margin-top: 30px;
+    
+    border: 1px #333 solid;
+    border: 1px rgba(0,0,0,0.5) solid;
+    color: #fff;
+}
+
+.footer-heading {
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+.footer-browse-pages-link {
+    color: #fff;
+}
+
+.footer-browse-pages-list-item,
+.footer-browse-pages-list-item .fa-li {
+    border-bottom: 1px #999 dotted;
+    border-bottom: 1px rgba(60, 60, 60, 0.7) dotted;
+    padding: 6px 0;
+}
+
+.footer-blog-post {
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.footer-blog-post-img {
+    margin: 5px 5px 0 0 ;
+}
+
+.footer-latest-tweets-list-item,
+.footer-latest-tweets-list-item .fa-li {
+    padding: 6px 0;
+}
+
+.footer-credits {
+    margin-top: 10px;
+}
+
+.footer-icons-list-item {
+    list-style: none;
+    list-style-type: none;
+    float: left;
+    font-size: 25pt;
+    margin-right: 10px;
+}
+
+.footer-icons-list-item-link {
+    color: #fff;
+}
+
+.footer-icons-list-item-link:hover {
+    color: #3E72A7;
+}
